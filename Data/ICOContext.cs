@@ -4,7 +4,7 @@ using ICOAppApi.Model;
 
 namespace ICOAppApi.Data
 {
-    public class ICOContext
+    public class ICOContext<T>
     {
         private readonly IMongoDatabase _database = null;
 
@@ -15,19 +15,10 @@ namespace ICOAppApi.Data
                 _database = client.GetDatabase(settings.Value.Database);
         }
 
-        public IMongoCollection<Ico> ICOStats
+        public IMongoCollection<T> GetCollection(string collection)
         {
-            get
             {
-                return _database.GetCollection<Ico>("ICOStats");
-            }
-        }
-
-        public IMongoCollection<ICODrops> ICODrops
-        {
-            get
-            {
-                return _database.GetCollection<ICODrops>("ICODrops");
+                return _database.GetCollection<T>(collection);
             }
         }
     }

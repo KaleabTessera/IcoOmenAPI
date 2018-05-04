@@ -37,7 +37,10 @@ namespace NotebookAppApi
                 options.Database = Configuration.GetSection("MongoConnection:Database").Value;
             });
 
-            services.AddTransient<InterfaceICORepository, ICORepository>();
+            services.AddTransient<ICORepository<ICOStats>, ICOStatsRepository>();
+            services.AddTransient<ICORepository<ICODrops>, ICODropsRepository>();
+            services.AddTransient<ICORepository<Datum>, ICOTokenDataRepository>();
+            services.AddTransient<ICORepository<Hit>, ICOPredictionVCRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

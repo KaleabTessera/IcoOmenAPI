@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-public class Ico
+public class ICOStats
 {
     [BsonId]
     public ObjectId InternalId { get; set; }
@@ -25,7 +25,7 @@ public class Ico
 
 public class Data
 {
-    public List<Ico> icos { get; set; }
+    public List<ICOStats> icos { get; set; }
 }
 public class RootObject
 {
