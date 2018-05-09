@@ -1,0 +1,108 @@
+
+db.createView("ICOSummary","ICOMaster",[
+{				
+	$lookup:
+     {
+       "from": "ICOStats",
+       "localField": "ICOStatsRef",
+       "foreignField": "_id",
+       "as": "ICOStatsDataObject"
+     }
+},
+   {
+     $unwind: {
+     "path":"$ICOStatsDataObject",
+     "preserveNullAndEmptyArrays": true
+     }
+   },
+     {
+     $lookup:
+     {
+       "from": "ICODrops",
+       "localField": "ICODropsRef",
+       "foreignField": "_id",
+       "as": "ICODropsObject"
+     }
+     },
+      {
+     $unwind: {
+     "path":"$ICODropsObject",
+     "preserveNullAndEmptyArrays": true
+     }
+   },
+     {
+     $lookup:
+     {
+       "from": "ICOTokenData",
+       "localField": "ICOTokenDataRef",
+       "foreignField": "_id",
+       "as": "ICOTokenDataObject"
+     }
+     },
+       {
+     $unwind: {
+     "path":"$ICOTokenDataObject",
+     "preserveNullAndEmptyArrays": true
+     }
+   },
+     {
+     $lookup:
+     {
+       "from": "PredictionVC",
+       "localField": "PredictionVCRef",
+       "foreignField": "_id",
+       "as": "PredictionVCObject"
+     }
+     },
+      {
+     $unwind: {
+     "path":"$PredictionVCObject",
+     "preserveNullAndEmptyArrays": true
+     }
+   },
+   {
+       $project:{
+        "name":1,
+         "price_usd_ICOStats"                                :"$ICOStatsDataObject.price_usd",
+         "eth_price_at_launch"                      :"$ICOStatsDataObject.eth_price_at_launch" ,
+         "btc_price_at_launch"                      :"$ICOStatsDataObject.btc_price_at_launch",
+         "is_erc20"                                 :"$ICOStatsDataObject.is_erc20"          ,
+         "eth_price_usd"                            :"$ICOStatsDataObject.eth_price_usd"     ,
+         "btc_price_usd"                            :"$ICOStatsDataObject.btc_price_usd"     ,
+         "amount_sold_in_ico"                       :"$ICOStatsDataObject.amount_sold_in_ico" ,
+         "price_usd_ICODrops"                                :"$ICODropsObject.price_usd"           ,
+         "price_btc"                                :"$ICODropsObject.price_btc"           ,
+         "market_cap_usd"                           :"$ICODropsObject.market_cap_usd"      ,
+         "available_supply"                         :"$ICODropsObject.available_supply"    ,
+         "total_supply_ICODrops"                             :"$ICODropsObject.total_supply"        ,
+         "max_supply"                               :"$ICODropsObject.max_supply"          ,
+         "whitepaper"                               :"$ICOTokenDataObject.whitepaper"      ,
+         "usd_raised"                               :"$ICOTokenDataObject.usd_raised"      ,
+         "month"                                    :"$ICOTokenDataObject.month"           ,
+         "total_supply_ICOTokenData"                               :"$ICOTokenDataObject.start_date"      ,
+         "end_date"                                 :"$ICOTokenDataObject.end_date"        ,
+         "token_return"                             :"$ICOTokenDataObject.token_return"    ,
+         "website"                                  :"$ICOTokenDataObject.website"         ,
+         "token_sale_price"                         :"$ICOTokenDataObject.token_sale_price",
+         "whitepaperUrl"                            :"$PredictionVCObject.whitepaperUrl"     ,
+         "websiteUrl"                               :"$PredictionVCObject.websiteUrl"        ,
+         "blockchain"                               :"$PredictionVCObject.blockchain"        ,
+         "twitterUrl"                               :"$PredictionVCObject.twitterUrl"        ,
+         "redditUrl"                                :"$PredictionVCObject.redditUrl"         ,
+         "githubUrl"                                :"$PredictionVCObject.githubUrl"         ,
+         "country"                             		:"$PredictionVCObject._geo.country"      ,
+         "twitterFollowers"                       :"$PredictionVCObject._twitter.followers",
+         "slackUrl"                                 :"$PredictionVCObject.slackUrl"          ,
+         "icoRaisedAmount"                          :"$PredictionVCObject.icoRaisedAmount" ,
+         "tokensIco"                                :"$PredictionVCObject.tokensIco"         ,
+         "tokensIssues"                             :"$PredictionVCObject.tokensIssues"      ,
+         "icoPriceUSD"                              :"$PredictionVCObject.icoPriceUSD"       ,
+         "icoStartDate"                             :"$PredictionVCObject.icoStartDate"      ,
+         "telegramUrl"                              :"$PredictionVCObject.telegramUrl"       ,
+         "youtubeUrl"                               :"$PredictionVCObject.youtubeUrl"        ,
+         "facebookUrl"                              :"$PredictionVCObject.facebookUrl"       ,
+         "icoEndDate"                               :"$PredictionVCObject.icoEndDate"        ,
+         "mediumUrl"                                :"$PredictionVCObject.mediumUrl"         ,
+     }
+     }
+])
