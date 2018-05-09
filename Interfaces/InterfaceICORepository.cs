@@ -34,7 +34,7 @@ namespace ICOAppApi.Interfaces
     // }
      public interface IRepository<T>
     {
-        Task Insert(T entity, string collection);
+        Task Insert(T entity, string collection, string name);
         Task Delete(T entity, string collection);
         //IQueryable<T> SearchFor(Expression<Func<T, bool>> predicate);
         // IQueryable<T> GetAll();

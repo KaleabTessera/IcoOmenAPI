@@ -18,6 +18,8 @@ namespace ICOAppApi.Controllers
         private readonly ICORepository<ICODrops> _iCODropsRepository;
         private readonly ICORepository<Datum> _iCOTokenDataRepository;
         private readonly ICORepository<Hit> _iCOPredictionVSRepository;
+        // private readonly ICORepository<ICOMaster> _ICOMasterRepository;
+        
 
         static HttpClient client = new HttpClient();
 
@@ -35,8 +37,6 @@ namespace ICOAppApi.Controllers
         {
             if (setting == "init")
             {
-                // _noteRepository.RemoveAllICOs();
-                // var name = _noteRepository.CreateIndex();
                 Task icoStats = GetICOInfoFromICOStats();
                 Task icoDrops = GetICOInfoFromICODrops();
                 Task tokenData = GetICOInfoFromTokenData();
@@ -65,7 +65,7 @@ namespace ICOAppApi.Controllers
                 icos = JsonConvert.DeserializeObject<RootObject>(jsonString.Result);
             }
             foreach(ICOStats ico in icos.data.icos){
-                await _iCOStatsRepository.Insert(ico,"ICOStats");// .AddICOStats(ico);
+                await _iCOStatsRepository.Insert(ico,"ICOStats",ico.name);
             }
             return Ok();
 
@@ -85,7 +85,7 @@ namespace ICOAppApi.Controllers
                 icos = JsonConvert.DeserializeObject<ICODrops[]>(jsonString.Result);
             }
             foreach(ICODrops ico in icos){
-                await _iCODropsRepository.Insert(ico,"ICODrops");
+                await _iCODropsRepository.Insert(ico,"ICODrops",ico.name);
             }
             return Ok();
 
@@ -105,7 +105,7 @@ namespace ICOAppApi.Controllers
                 icos = JsonConvert.DeserializeObject<ICOTokenData>(jsonString.Result);
             }
             foreach(Datum ico in icos.data){
-                await _iCOTokenDataRepository.Insert(ico,"ICOTokenData");
+                await _iCOTokenDataRepository.Insert(ico,"ICOTokenData",ico.name);
             }
             return Ok();
 
@@ -128,7 +128,7 @@ namespace ICOAppApi.Controllers
                 icos = JsonConvert.DeserializeObject<PredictionVC>(jsonString.Result);
             }
             foreach(Hit ico in icos.results[0].hits){
-                await _iCOPredictionVSRepository.Insert(ico,"PredictionVC");// .AddICOStats(ico);
+                await _iCOPredictionVSRepository.Insert(ico,"PredictionVC",ico.name);// .AddICOStats(ico);
             }
             return Ok();
 
