@@ -34,18 +34,18 @@ public class Geo
     public string streetNumber { get; set; }
 }
 
-public class Metrics
-{
-    public int? fiscalYearEnd { get; set; }
-    public string estimatedAnnualRevenue { get; set; }
-    public long? annualRevenue { get; set; }
-    public int? raised { get; set; }
-    public long? marketCap { get; set; }
-    public string employeesRange { get; set; }
-    public int? employees { get; set; }
-    public int? alexaGlobalRank { get; set; }
-    public int? alexaUsRank { get; set; }
-}
+// public class Metrics
+// {
+//     public int? fiscalYearEnd { get; set; }
+//     public string estimatedAnnualRevenue { get; set; }
+//     public long? annualRevenue { get; set; }
+//     public int? raised { get; set; }
+//     public long? marketCap { get; set; }
+//     public string employeesRange { get; set; }
+//     public int? employees { get; set; }
+//     public int? alexaGlobalRank { get; set; }
+//     public int? alexaUsRank { get; set; }
+// }
 
 public class Twitter
 {
@@ -69,44 +69,44 @@ public class Linkedin
     public string handle { get; set; }
 }
 
-public class Scores
-{
-    public double valuation { get; set; }
-    public double social { get; set; }
-    public double transparancy { get; set; }
-}
+// public class Scores
+// {
+//     public double valuation { get; set; }
+//     public double social { get; set; }
+//     public double transparancy { get; set; }
+// }
 
-public class MonthMarket
-{
-    public List<object> price { get; set; }
-    public List<object> volume { get; set; }
-}
+// public class MonthMarket
+// {
+//     public List<object> price { get; set; }
+//     public List<object> volume { get; set; }
+// }
 
-public class WeekMarket
-{
-    public List<object> price { get; set; }
-    public List<object> volume { get; set; }
-}
+// public class WeekMarket
+// {
+//     public List<object> price { get; set; }
+//     public List<object> volume { get; set; }
+// }
 
-public class FourteenDay
-{
-    public double? change { get; set; }
-    public object predictionStats { get; set; }
-    public double prediction { get; set; }
-}
+// public class FourteenDay
+// {
+//     public double? change { get; set; }
+//     public object predictionStats { get; set; }
+//     public double prediction { get; set; }
+// }
 
-public class SevenDay
-{
-    public double? change { get; set; }
-    public object predictionStats { get; set; }
-    public double prediction { get; set; }
-}
+// public class SevenDay
+// {
+//     public double? change { get; set; }
+//     public object predictionStats { get; set; }
+//     public double prediction { get; set; }
+// }
 
-public class Predictions
-{
-    public FourteenDay fourteenDay { get; set; }
-    public SevenDay sevenDay { get; set; }
-}
+// public class Predictions
+// {
+//     public FourteenDay fourteenDay { get; set; }
+//     public SevenDay sevenDay { get; set; }
+// }
 
 public class LinkedFile
 {
@@ -137,18 +137,18 @@ public class Name
     public List<object> matchedWords { get; set; }
 }
 
-public class HighlightResult
-{
-    public Description description { get; set; }
-    public Symbol symbol { get; set; }
-    public Name name { get; set; }
-}
+// public class HighlightResult
+// {
+//     public Description description { get; set; }
+//     public Symbol symbol { get; set; }
+//     public Name name { get; set; }
+// }
 
-public class User
-{
-    public string id { get; set; }
-    public string authkey { get; set; }
-}
+// public class User
+// {
+//     public string id { get; set; }
+//     public string authkey { get; set; }
+// }
 
 public class Hit
 {
@@ -178,9 +178,9 @@ public class Hit
     public List<object> _emailaddresses { get; set; }
     public Facebook _facebook { get; set; }
     public Geo _geo { get; set; }
-    public Metrics _metrics { get; set; }
+    // public Metrics _metrics { get; set; }
     public object _tags { get; set; }
-    public List<object> _tech { get; set; }
+    // public List<object> _tech { get; set; }
     public Twitter _twitter { get; set; }
     public Crunchbase _crunchbase { get; set; }
     public Linkedin _linkedin { get; set; }
@@ -190,29 +190,29 @@ public class Hit
     public object marketcap { get; set; }
     public double usdPrice { get; set; }
     public object volume { get; set; }
-    public Scores scores { get; set; }
-    public double forecast14Day { get; set; }
-    public double forecast7Day { get; set; }
-    public object dayMarket { get; set; }
-    public MonthMarket monthMarket { get; set; }
-    public object quarterMarket { get; set; }
-    public WeekMarket weekMarket { get; set; }
-    public object yearMarket { get; set; }
+    // public Scores scores { get; set; }
+    // public double forecast14Day { get; set; }
+    // public double forecast7Day { get; set; }
+    // public object dayMarket { get; set; }
+    // public MonthMarket monthMarket { get; set; }
+    // public object quarterMarket { get; set; }
+    // public WeekMarket weekMarket { get; set; }
+    // public object yearMarket { get; set; }
     public object _github { get; set; }
-    public Predictions predictions { get; set; }
+    // public Predictions predictions { get; set; }
     public DateTime lastUpdated { get; set; }
     public List<LinkedFile> linkedFiles { get; set; }
     public object ratings { get; set; }
     public object exchanges { get; set; }
     public object news { get; set; }
-    public List<object> team { get; set; }
+    // public List<object> team { get; set; }
     public List<object> verifiedTeam { get; set; }
-    public List<object> price7Day { get; set; }
-    public List<object> volume7Day { get; set; }
+    // public List<object> price7Day { get; set; }
+    // public List<object> volume7Day { get; set; }
     public string objectID { get; set; }
-    public HighlightResult _highlightResult { get; set; }
+    // public HighlightResult _highlightResult { get; set; }
     public string slackUrl { get; set; }
-    public User user { get; set; }
+    // public User user { get; set; }
     public double? icoRaisedAmount { get; set; }
     public long? tokensIco { get; set; }
     public BigInteger? tokensIssues { get; set; }

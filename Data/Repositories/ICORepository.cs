@@ -44,25 +44,25 @@ namespace ICOAppApi.Data
                             case "ICODrops":
                                 {
                                     ICODrops ele = (ICODrops)(object)entity;
-                                    elementToAdd.ICODropsRef = new MongoDBRef(collection, ele.InternalId);
+                                    elementToAdd.ICODropsRef =  ele.InternalId;
                                     break;
                                 }
                             case "ICOStats":
                                 {
                                     ICOStats ele = (ICOStats)(object)entity;
-                                    elementToAdd.ICOStatsRef = new MongoDBRef(collection, ele.InternalId);
+                                    elementToAdd.ICOStatsRef =  ele.InternalId;
                                     break;
                                 }
                             case "ICOTokenData":
                                 {
                                     Datum ele = (Datum)(object)entity;
-                                    elementToAdd.ICOTokenDataRef = new MongoDBRef(collection, ele.InternalId);
+                                    elementToAdd.ICOTokenDataRef = ele.InternalId;
                                     break;
                                 }
                             case "PredictionVC":
                                 {
                                     Hit ele = (Hit)(object)entity;
-                                    elementToAdd.PredictionVCRef = new MongoDBRef(collection, ele.InternalId);
+                                    elementToAdd.PredictionVCRef = ele.InternalId;
                                     break;
                                 }
                         }
@@ -77,28 +77,28 @@ namespace ICOAppApi.Data
                             case "ICODrops":
                                 {
                                     ICODrops ele = (ICODrops)(object)entity;
-                                    update = Builders<ICOMaster>.Update.Set("ICODropsRef",  new MongoDBRef(collection, ele.InternalId));
+                                    update = Builders<ICOMaster>.Update.Set("ICODropsRef",  ele.InternalId);
                                     // icoMaster.ICODrops = new MongoDBRef(collection, ele.InternalId);
                                     break;
                                 }
                             case "ICOStats":
                                 {
                                     ICOStats ele = (ICOStats)(object)entity;
-                                     update = Builders<ICOMaster>.Update.Set("ICOStatsRef",  new MongoDBRef(collection, ele.InternalId));
+                                     update = Builders<ICOMaster>.Update.Set("ICOStatsRef",  ele.InternalId);
                                    // icoMaster.ICOStats = new MongoDBRef(collection, ele.InternalId);
                                     break;
                                 }
                             case "ICOTokenData":
                                 {
                                     Datum ele = (Datum)(object)entity;
-                                    update = Builders<ICOMaster>.Update.Set("ICOTokenDataRef",  new MongoDBRef(collection, ele.InternalId));
+                                    update = Builders<ICOMaster>.Update.Set("ICOTokenDataRef",  ele.InternalId);
                                     //icoMaster.ICOTokenData = new MongoDBRef(collection, ele.InternalId);
                                     break;
                                 }
                             case "PredictionVC":
                                 {
                                     Hit ele = (Hit)(object)entity;
-                                     update = Builders<ICOMaster>.Update.Set("PredictionVCRef",  new MongoDBRef(collection, ele.InternalId));
+                                     update = Builders<ICOMaster>.Update.Set("PredictionVCRef",  ele.InternalId);
                                    // icoMaster.ICODrops = new MongoDBRef(collection, ele.InternalId);
                                     break;
                                 }
