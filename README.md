@@ -9,7 +9,7 @@ Change configuration in appsettings.json to match your mongo settings.
 
 ### 3. Run API via Docker
 - `docker build -t api .`      
-- `docker run -d -p 8080:80 --name myapp aspnetapp`
+- `docker run -d -p 8080:80 --name myapp api`
 
 ### 4. Initialize Database with data from Different locations
 `http://localhost:8080/api/system/init`
