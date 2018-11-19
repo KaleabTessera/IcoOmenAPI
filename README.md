@@ -6,7 +6,6 @@ https://docs.docker.com/compose/install/#install-compose
  
 ### 2. Build and Run Docker-compose
 ```
-docker-compose build
 docker-compose up
 ```
 
